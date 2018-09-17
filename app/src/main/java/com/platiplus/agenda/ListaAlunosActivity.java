@@ -1,7 +1,9 @@
 package com.platiplus.agenda;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.FloatProperty;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -40,7 +42,8 @@ public class ListaAlunosActivity extends AppCompatActivity {
         botaoNovoAluno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                Intent intentAbrirFormulario = new Intent(ListaAlunosActivity.this, FormularioActivity.class);
+                startActivity(intentAbrirFormulario);
             }
         });
     }
