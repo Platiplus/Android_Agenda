@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.platiplus.agenda.DAO.AlunoDAO;
+import com.platiplus.agenda.Model.Aluno;
+
 import java.lang.ref.SoftReference;
 import java.util.List;
 
@@ -20,21 +23,12 @@ public class ListaAlunosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_alunos);
 
-        String[] listaDeAlunos = {
-                "Stuart",
-                "Garrison",
-                "Christian",
-                "Fulton",
-                "Philip",
-                "Stewart",
-                "Xander",
-                "Chase",
-                "Jerry",
-                "Shad"
-        };
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaDeAlunos);
+        AlunoDAO dao = new AlunoDAO(this);
+        List<Aluno> alunos = dao.buscaAlunos();
+        dao.close();
 
         ListView listaAlunos = findViewById(R.id.lista_alunos);
+        ArrayAdapter<Aluno> adapter = new ArrayAdapter<Aluno>(this, android.R.layout.simple_list_item_1, alunos);
         listaAlunos.setAdapter(adapter);
 
         Button botaoNovoAluno = findViewById(R.id.lista_button);

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.platiplus.agenda.DAO.AlunoDAO;
 import com.platiplus.agenda.Model.Aluno;
 
 public class FormularioActivity extends AppCompatActivity {
@@ -36,6 +37,11 @@ public class FormularioActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.menu_formulario_ok:
                 Aluno aluno = helper.getAluno();
+                AlunoDAO dao = new AlunoDAO(this);
+
+                dao.insere(aluno);
+                dao.close();
+
                 Toast.makeText(FormularioActivity.this, "Aluno " + aluno.getNome() + " salvo!", Toast.LENGTH_SHORT).show();
 
                 finish();
