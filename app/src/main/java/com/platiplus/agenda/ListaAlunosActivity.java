@@ -33,6 +33,11 @@ public class ListaAlunosActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(ActivityCompat.checkSelfPermission(ListaAlunosActivity.this, Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(ListaAlunosActivity.this, new String[]{Manifest.permission.RECEIVE_SMS}, 124);
+        }
+
         setContentView(R.layout.activity_lista_alunos);
         Button botaoNovoAluno = findViewById(R.id.lista_button);
         listaAlunos = findViewById(R.id.lista_alunos);
