@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.FloatProperty;
 import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Adapter;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 import com.platiplus.agenda.Adapter.AlunosAdapter;
 import com.platiplus.agenda.DAO.AlunoDAO;
 import com.platiplus.agenda.Model.Aluno;
+import com.platiplus.agenda.converter.AlunoConverter;
 
 import java.lang.ref.SoftReference;
 import java.util.List;
@@ -76,6 +78,22 @@ public class ListaAlunosActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         carregaLista();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_lista_alunos, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_enviar_notas:
+                new EnviaAlunosTask(this).execute();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

@@ -1,0 +1,24 @@
+{
+  "list": [
+    {
+      "aluno": [
+        {
+          "id": "1",
+          "nome": "Daniel",
+          "endereco": "Rua Vergueiro",
+          "telefone": "991234567",
+          "site": "www.bolinha.com",
+          "nota": "4.5"
+        },
+        {
+          "id": "2",
+          "nome": "Jefferson",
+          "endereco": "Avenida Rebouças",
+          "telefone": "997894561",
+          "site": "www.bolinha.com",
+          "nota": "3.5"
+        }
+      ]
+    }
+  ]
+}
